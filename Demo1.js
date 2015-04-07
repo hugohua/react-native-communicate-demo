@@ -40,8 +40,8 @@ module.exports = React.createClass({
         <Text style={styles.welcome}>
           Welcome to React Native!
         </Text>
-        <ScrollView style={{flex : 1}}>
-            <View style={{flex:1,height : 300, marginTop: -64, backgroundColor:'#cccccc'}}>
+        <ScrollView style={{flex : 1}} contentInset={{top: -64}}>
+            <View style={{flex:1,height : 300, backgroundColor:'#cccccc'}}>
                 <Text style={styles.instructions}>
                   To get started, edit index.ios.js
                 </Text>
