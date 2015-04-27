@@ -6,9 +6,6 @@
 
 var React = require('react-native');
 
-var Input = require('./Input');
-var Show = require('./Show');
-
 
 var {
   StyleSheet,

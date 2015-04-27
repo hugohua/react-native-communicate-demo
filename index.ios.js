@@ -5,7 +5,7 @@
 'use strict';
 
 var React = require('react-native');
-var Demo1 = require('./Demo1');
+var Demo2 = require('./Demo2');
 var {
   AppRegistry,
   StyleSheet,

@@ -6,9 +6,6 @@
 
 var React = require('react-native');
 
-var Input = require('./Input');
-var Show = require('./Show');
-
 
 var {
   StyleSheet,
@@ -41,7 +38,6 @@ var styles = StyleSheet.create({
 var Input = React.createClass({
 
     handleUpdateChange(text) {
-        console.log(text);
         this.props.updateChange(text);
     },
 
@@ -49,9 +45,7 @@ var Input = React.createClass({
   render() {
 
     return (
-      <View style={{flex : 1,justifyContent: 'center',alignItems: 'center',backgroundColor: '#F5FCFF'}}>
         <TextInput onChangeText={(text) => this.handleUpdateChange(text)} style={{ width : 200, height: 40, borderColor: 'gray', borderWidth: 1}} />
-      </View>
     );
   }
 });
@@ -61,13 +55,24 @@ var Input = React.createClass({
 
 var ShowText = React.createClass({
 
+    getInitialState(){
+      return {
+        text : '我是文字'
+      }
+    },
+
+    handleChange(textValue){
+      this.setState({
+        text: textValue
+      });
+    },
 
     render() {
 
         return (
           <View style={{flex : 1,justifyContent: 'center',alignItems: 'center',backgroundColor: '#F5FCFF'}}>
-            <Text>{this.props.text}</Text>
-            <Input />
+            <Text>{this.state.text}</Text>
+            <Input updateChange={this.handleChange} />
           </View>
         );
     }
@@ -75,23 +80,10 @@ var ShowText = React.createClass({
 
 module.exports = React.createClass({
 
-  getInitialState(){
-    return {
-      text : '我是文字'
-    }
-  },
-
-  handleChange(textValue){
-    this.setState({
-      text: textValue
-    });
-  },
-
   render() {
     return (
       <View style={styles.container}>
-        <Input updateChange={this.handleChange} />
-        <ShowText text={this.state.text} />
+        <ShowText />
       </View>
     );
   }
