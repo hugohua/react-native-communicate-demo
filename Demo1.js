@@ -5,11 +5,16 @@
 'use strict';
 
 var React = require('react-native');
+
+var Input = require('./Input');
+var Show = require('./Show');
+
+
 var {
   StyleSheet,
   Text,
   View,
-  ScrollView
+  TextInput
 } = React;
 
 
@@ -32,27 +37,60 @@ var styles = StyleSheet.create({
   },
 });
 
-module.exports = React.createClass({
-  render: function() {
+
+var Input = React.createClass({
+
+    handleUpdateChange(text) {
+        this.props.updateChange(text);
+    },
+
+
+  render() {
+
     return (
-      <ScrollView>  
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <ScrollView style={{flex : 1}} contentInset={{top: -64}}>
-            <View style={{flex:1,height : 300, backgroundColor:'#cccccc'}}>
-                <Text style={styles.instructions}>
-                  To get started, edit index.ios.js
-                </Text>
-            </View>
-        </ScrollView>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+Control+Z for dev menu
-        </Text>
+      <View style={{flex : 1,justifyContent: 'center',alignItems: 'center',backgroundColor: '#F5FCFF'}}>
+        <TextInput onChangeText={(text) => this.handleUpdateChange(text)} style={{ width : 200, height: 40, borderColor: 'gray', borderWidth: 1}} />
       </View>
-      </ScrollView>
+    );
+  }
+});
+
+
+
+
+var ShowText = React.createClass({
+
+
+    render() {
+
+        return (
+          <View style={{flex : 1,justifyContent: 'center',alignItems: 'center',backgroundColor: '#F5FCFF'}}>
+            <Text>{this.props.text}</Text>
+          </View>
+        );
+    }
+});
+
+module.exports = React.createClass({
+
+  getInitialState(){
+    return {
+      text : '我是文字'
+    }
+  },
+
+  handleChange(textValue){
+    this.setState({
+      text: textValue
+    });
+  },
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <Input updateChange={this.handleChange} />
+        <ShowText text={this.state.text} />
+      </View>
     );
   }
 });

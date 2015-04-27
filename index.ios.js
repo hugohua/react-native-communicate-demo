@@ -38,33 +38,14 @@ var styles = StyleSheet.create({
 
 var Comunicate = React.createClass({
   render: function() {
-    // return (
-    //   <ScrollView>  
-    //   <View style={styles.container}>
-    //     <Text style={styles.welcome}>
-    //       Welcome to React Native!
-    //     </Text>
-    //     <ScrollView style={{flex : 1}}>
-    //         <View style={{flex:1,height : 300, backgroundColor:'#cccccc'}}>
-    //             <Text style={styles.instructions}>
-    //               To get started, edit index.ios.js
-    //             </Text>
-    //         </View>
-    //     </ScrollView>
-    //     <Text style={styles.instructions}>
-    //       Press Cmd+R to reload,{'\n'}
-    //       Cmd+Control+Z for dev menu
-    //     </Text>
-    //   </View>
-    //   </ScrollView>
-    // );
+   
 
     return (
       <NavigatorIOS
         style={{flex : 1}}
         initialRoute={{
-          title: 'Property Finder',
-          component: Demo1,
+          title: '组件间通信',
+          component: Demo2,
         }}/>
     );
   }
