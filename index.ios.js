@@ -5,7 +5,7 @@
 'use strict';
 
 var React = require('react-native');
-var Demo2 = require('./Demo2');
+var Demo3 = require('./Demo3');
 var {
   AppRegistry,
   StyleSheet,
@@ -44,8 +44,8 @@ var Comunicate = React.createClass({
       <NavigatorIOS
         style={{flex : 1}}
         initialRoute={{
-          title: '组件间通信',
-          component: Demo2,
+          title: '组件间通信 Event',
+          component: Demo3,
         }}/>
     );
   }
